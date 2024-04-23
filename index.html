@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang='pt-br' >
+<head>
+    <title>Clube do Léo</title>
+    <meta charset='utf-8'>
+    <style> 
+        :root {
+            --primary: #B99470;
+            --secondary: #DEAC80;
+            --tertiary: #F7DCB9;
+            --shadow: #B5C18E;
+        }
+
+        body {
+            background-color: var(--shadow);
+        }
+
+        #produtos {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .produto {
+            background-color: var(--primary);
+            border-radius: 1em;
+            display: flex;
+            text-align: center;
+            margin-bottom: 1em;
+            align-items: center;
+        }
+
+        .produto.reverse {
+            flex-direction: row-reverse;
+        }
+
+        img.rounded {        
+            object-fit: cover;
+            border-radius: 50%;
+        }
+    </style>
+</head>
+<body>
+    <main>
+        <section id='produtos'></section>
+    </main>
+<script>
+    const produtos = [
+        { nome: 'Bolha de sabão', descricao: 'Personalizadas. <br />Cores sortidas', valor: 4.5, imagem: 'https://http.cat/images/100.jpg' },
+        { nome: 'Copo com Canudo', descricao: 'Quantidade mínima: 10un. <br />Personalizados. <br />Consulte valor para copos coloridos', valor: 6, imagem: 'https://http.cat/images/101.jpg' },
+        { nome: 'Copo Long Drink', descricao: 'Consulte cores disponíveis', valor: 3, imagem: 'https://http.cat/images/102.jpg' },
+        { nome: 'Copo Long Drink Mini Com Tampa', descricao: 'Consulte cores disponíveis', valor: 7, imagem: 'https://http.cat/images/200.jpg' },        
+        { nome: 'Taça de Gin Colorida', descricao: 'Consulte cores disponíveis', valor: 15, imagem: 'https://http.cat/images/201.jpg' },        
+        { nome: 'Taça de Gin Transparente', descricao: '', valor: 10, imagem: 'https://http.cat/images/202.jpg' },        
+        { nome: 'Taça de Espumante', descricao: 'Consulte cores disponíveis', valor: 5, imagem: 'https://http.cat/images/203.jpg' },        
+        { nome: 'Caneca de Chopp', descricao: 'Consulte cores disponíveis', valor: [
+            { descricao: 'Frente', valor: 6 },
+            { descricao: 'Frente e Verso', valor: 7 },
+        ], imagem: 'https://http.cat/images/204.jpg' },        
+        { nome: 'Caixa', descricao: 'Modelo milk', valor: 5, imagem: 'https://http.cat/images/205.jpg' },        
+        { nome: 'Caixa', descricao: 'Modelo pirâmide', valor: 5, imagem: 'https://http.cat/images/206.jpg' },        
+        { nome: 'Caixa', descricao: 'Modelo bala', valor: 6, imagem: 'https://http.cat/images/207.jpg' },        
+        { nome: 'Kit Massinha de Modelar', descricao: 'Acompanha 3 bastões de massinha e 2 forminhas de corte sortidas. <br />Lapela personalizada', valor: 3.9, imagem: 'https://http.cat/images/207.jpg' },        
+        { nome: 'Cofrinho', descricao: 'Personalizado<br />Diversas cores para sua escolha', valor: 3.5, imagem: 'https://http.cat/images/208.jpg' },        
+        { nome: 'Tubetes', descricao: 'Personalizado com aplique<br />Diversas cores para sua escolha', valor: 2.5, imagem: 'https://http.cat/images/301.jpg' },        
+        { nome: 'Balde de Pipoca', descricao: 'Personalizado<br />Consulte cores disponíveis<br />1,5L', valor: 4.5, imagem: 'https://http.cat/images/400.jpg' },
+        { nome: 'Livro de colorir', descricao: 'Personalizado<br />Acompanha uma caixa de giz de cera com 6 cores<br />8 páginas', valor: 6.5, imagem: 'https://http.cat/images/401.jpg' },        
+        { nome: 'Rótulo para suculentas', descricao: 'Personalizado<br />Para vaso nº 6', valor: 4.5, imagem: 'https://http.cat/images/403.jpg' },        
+        { nome: 'Chaveiro', descricao: 'Personalizado frente e verso<br />Acrícilo', valor: 2.5, imagem: 'https://http.cat/images/404.jpg' },        
+        { nome: 'Bloquinho', descricao: 'Personalizado<br />Tamanho: 10x7cm<br />30 folhas<br />Capa fléxivel<br /> Encadernado', valor: 4, imagem: 'https://http.cat/images/422.jpg' },        
+        { nome: 'Lápis', descricao: 'Personalizado', valor: 2, imagem: 'https://http.cat/images/500.jpg' },        
+        { nome: 'Caneta', descricao: 'Personalizado<br />Diversas cores para sua escolha<br />Pedido mínimo 20un', valor: 3, imagem: 'https://http.cat/images/501.jpg' },        
+        { nome: 'Tubo lata', descricao: 'Tamanho 10cm de diâmetro<br />Diversas cores para sua escolha', valor: 10, imagem: 'https://http.cat/images/502.jpg' },        
+        { nome: 'Tubo lata Mini', descricao: 'Personalizado<br />Diversas cores para sua escolha<br />Tamanho: 5cm de diâmetro', valor: 6, imagem: 'https://http.cat/images/503.jpg' },        
+        { nome: 'Vela', descricao: 'Vela na lata personalizada', valor: 7, imagem: 'https://http.cat/images/200.jpg' },        
+        { nome: 'Imã com foto', descricao: 'Personalizado<br />Tamanho: 10x7cm<br />Mínimo 10un', valor: 4, imagem: 'https://http.cat/images/100.jpg' },        
+        { nome: 'Calendário', descricao: 'Com imã<br />Tamanho: 5x10cm<br />Mínimo 20un', valor: 2.5, imagem: 'https://http.cat/images/102.jpg' },        
+        { nome: 'Jogo da Memória', descricao: 'Personalizado<br />8 pares', valor: 8, imagem: 'https://http.cat/images/202.jpg' },        
+        { nome: 'Livro de Orações', descricao: 'Tamanho: 7x10cm<br />Capa flexível 240g<br />Folhas internas 90g<br />20 páginas<br />Contém 15 orações e informações da criança', valor: 2.5, imagem: 'https://http.cat/images/400.jpg' },        
+    ]
+
+    const insertAt = document.querySelector('#produtos')
+    produtos.forEach((p, index) => {
+        const article = document.createElement('template')
+        const isOdd = index % 2 !== 0
+
+        let detalhesValor
+
+        if (typeof(p.valor) === 'number') {
+            detalhesValor = `<p class="valor">R$ ${p.valor.toFixed(2)}</p>`
+        } else { 
+            detalhesValor = '<span>TODO</span>'
+        }
+        
+        const produto = `
+            <article class="produto ${isOdd ? 'reverse' : ''}">
+                <section>
+                    <p><strong>${p.nome.toLocaleUpperCase()}</strong></p>
+                    <p>${p.descricao}</p>
+                    ${detalhesValor}
+                </section>
+                <figure>
+                    <img src="${p.imagem}" class="rounded" />
+                </figure>
+            </article>
+        `
+
+        article.innerHTML = produto
+        insertAt.append(article.content.children[0])
+    })
+</script>
+</body>
+</html>
