@@ -87,6 +87,17 @@ article.produto {
   }
 }
 
+footer {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+
+  & * {
+    margin: 0 8px;
+  }
+}
+
 @media (width > 768px) {
   nav {
     flex-direction: row;
