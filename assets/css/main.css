@@ -4,12 +4,15 @@
   --tertiary: #f7dcb9;
   --shadow: #faf7f7;
   --light-bg: #ffffff;
+  font-size: 16pt;
+  font-family: "Gill Sans", sans-serif;
 }
 
 body {
   background-color: var(--shadow);
   display: flex;
   flex-direction: column;
+  min-width: 400px;
 }
 
 header {
@@ -20,7 +23,8 @@ header {
 
 nav {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
+  align-items: center;
   justify-content: center;
 }
 
@@ -33,7 +37,6 @@ nav section {
   flex-direction: column;
   flex-wrap: wrap;
   justify-content: center;
-  padding: 2vh 10vw 0 10vw;
 }
 
 article.produto {
@@ -58,25 +61,35 @@ article.produto {
   & section {
     width: 100%;
 
+    & p {
+      margin: unset;
+    }
+
     & .nome {
       font-weight: bold;
       text-align: center;
     }
 
     & .descricao {
-      font-size: 0.8em;
-      text-align: justify;
+      text-align: center;
     }
 
     & .valor {
-      text-align: right;
-      font-size: 0.6em;
-    }
+      justify-content: end;
+      display: flex;
+      align-items: baseline;
 
-    & .valor span {
-      font-size: 2em;
-      font-weight: bold;
+      & span {
+        font-size: 2em;
+        font-weight: bold;
+      }
     }
+  }
+}
+
+@media (width > 768px) {
+  nav {
+    flex-direction: row;
   }
 }
 
@@ -84,5 +97,21 @@ article.produto {
   #produtos {
     flex-direction: row;
     padding: unset;
+  }
+
+  article.produto {
+    flex: 1 0 calc(33% - 10px);
+  }
+}
+
+@media (width > 1440px) {
+  #produtos article.produto {
+    flex: 1 0 calc(25% - 10px);
+  }
+}
+
+@media (width > 1920px) {
+  #produtos article.produto {
+    flex: 1 0 calc(15% - 10px);
   }
 }
