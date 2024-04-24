@@ -1,0 +1,80 @@
+:root {
+  --primary: #b99470;
+  --secondary: #deac80;
+  --tertiary: #f7dcb9;
+  --shadow: #faf7f7;
+  --light-bg: #ffffff;
+}
+
+body {
+  background-color: var(--shadow);
+  display: flex;
+  flex-direction: column;
+}
+
+header {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+}
+
+nav {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+nav section {
+  margin: 0.5vh 1vw;
+}
+
+#produtos {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+article.produto {
+  background-color: var(--light-bg);
+  padding: 0.5vh 0.5vw;
+  margin: 1vh 1vw;
+  border-radius: 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  & figure {
+    background-color: var(--tertiary);
+    border-radius: 50% 20% / 10% 40%;
+    margin: 0.5vh 0.5vw;
+
+    & img {
+      margin: unset;
+    }
+  }
+
+  & section {
+    width: 100%;
+
+    & .nome {
+      font-weight: bold;
+      text-align: center;
+    }
+
+    & .descricao {
+      font-size: 0.8em;
+      text-align: justify;
+    }
+
+    & .valor {
+      text-align: right;
+      font-size: 0.6em;
+    }
+
+    & .valor span {
+      font-size: 2em;
+      font-weight: bold;
+    }
+  }
+}
