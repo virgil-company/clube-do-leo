@@ -27,24 +27,16 @@
     </header>
     <nav>
       <section>
-        <a href="#" id="lembrancinhas-href" data-tipo-produto="lembrancinhas"
-          >Lembrancinhas</a
-        >
+        <a href="#" data-tipo-produto="lembrancas">Lembrancinhas</a>
       </section>
       <section>
-        <a href="#" id="presentes-href" data-tipo-produto="presentes"
-          >Presentes</a
-        >
+        <a href="#" data-tipo-produto="presentes">Presentes</a>
       </section>
       <section>
-        <a href="#" id="corporativos-href" data-tipo-produto="corporativo"
-          >Corporativo</a
-        >
+        <a href="#" data-tipo-produto="corporativos">Corporativo</a>
       </section>
       <section>
-        <a href="#" id="decorativos-href" data-tipo-produto="decorativo"
-          >Decorativo</a
-        >
+        <a href="#" data-tipo-produto="decorativos">Decorativo</a>
       </section>
     </nav>
     <main>
@@ -59,42 +51,15 @@
       /></a>
     </footer>
     <script type="module">
-      import {
-        renderLembrancinhas,
-        renderPresentes,
-        renderCorporativos,
-        renderDecorativos,
-      } from "./assets/js/renderer.js";
-
-      document
-        .querySelector("#lembrancinhas-href")
-        .addEventListener("click", renderLembrancinhas);
-
-      document
-        .querySelector("#presentes-href")
-        .addEventListener("click", renderPresentes);
-
-      document
-        .querySelector("#corporativos-href")
-        .addEventListener("click", renderCorporativos);
-
-      document
-        .querySelector("#decorativos-href")
-        .addEventListener("click", renderDecorativos);
+      import { handleCategoriaClick } from "./assets/js/renderer.js";
 
       const links = document.querySelectorAll("nav section a");
-      links.forEach((link) =>
-        link.addEventListener("click", (ev) => {
-          links.forEach((l) => {
-            const active =
-              l.dataset.tipoProduto === ev.target.dataset.tipoProduto;
 
-            l.setAttribute("class", active ? "active" : "");
-          });
-        })
+      links.forEach((link) =>
+        link.addEventListener("click", handleCategoriaClick)
       );
 
-      document.querySelector("#lembrancinhas-href").click();
+      links[0].click();
     </script>
   </body>
 </html>

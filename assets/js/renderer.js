@@ -1,11 +1,11 @@
 import { produtos } from "./store.js";
 
-const renderStore = (arr) => () => {
+const renderStore = (arr) => {
   const insertAt = document.querySelector("#produtos");
-  document.querySelectorAll(".produto")?.forEach(c => c.remove())
+  document.querySelectorAll("#produtos .produto")?.forEach((c) => c.remove());
 
-  arr.forEach(p => {
-    const article = document.createElement("template");    
+  arr.forEach((p) => {
+    const article = document.createElement("template");
 
     const produto = `
       <article class="produto">
@@ -25,7 +25,15 @@ const renderStore = (arr) => () => {
   });
 };
 
-export const renderLembrancinhas = renderStore(produtos.lembrancas)
-export const renderPresentes = renderStore(produtos.presentes)
-export const renderDecorativos = renderStore(produtos.decorativos)
-export const renderCorporativos = renderStore(produtos.corporativos)
+export const handleCategoriaClick = (ev) => {
+  const categoria = ev.target.dataset.tipoProduto;
+
+  renderStore(produtos[categoria]);
+
+  const links = document.querySelectorAll("nav section a");
+  links.forEach((l) => {
+    const active = l.dataset.tipoProduto === categoria;
+
+    l.setAttribute("class", active ? "active" : "");
+  });
+};
