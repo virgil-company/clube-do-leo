@@ -176,4 +176,38 @@ export const produtos = {
       tags: ["personalizado"],
     },
   ],
+  presentes: [
+    {
+      nome: "Bolha de sabão",
+      descricao: "Cores sortidas",
+      valor: 4.5,
+      imagem: "./assets/img/lembrancinhas/exemplo1.png",
+      tags: ["personalizado"],
+    },
+  ],
+  corporativos: [
+    {
+      nome: "Bolha de sabão",
+      descricao: "Cores sortidas",
+      valor: 4.5,
+      imagem: "./assets/img/lembrancinhas/exemplo1.png",
+      tags: ["personalizado"],
+    },
+    {
+      nome: "Bolha de sabão",
+      descricao: "Cores sortidas",
+      valor: 4.5,
+      imagem: "./assets/img/lembrancinhas/exemplo3.png",
+      tags: ["personalizado"],
+    },
+  ],
+  decorativos: [
+    {
+      nome: "Bolha de sabão",
+      descricao: "Cores sortidas",
+      valor: 4.5,
+      imagem: "./assets/img/lembrancinhas/exemplo2.png",
+      tags: ["personalizado"],
+    },
+  ],
 };

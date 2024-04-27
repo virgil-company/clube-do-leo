@@ -1,9 +1,11 @@
 import { produtos } from "./store.js";
 
-const renderStore = () => {
+const renderStore = (arr) => () => {
   const insertAt = document.querySelector("#produtos");
-  produtos.lembrancas.forEach((p, index) => {
-    const article = document.createElement("template");
+  document.querySelectorAll(".produto")?.forEach(c => c.remove())
+
+  arr.forEach(p => {
+    const article = document.createElement("template");    
 
     const produto = `
       <article class="produto">
@@ -23,6 +25,7 @@ const renderStore = () => {
   });
 };
 
-export const renderPage = () => {
-  renderStore();
-};
+export const renderLembrancinhas = renderStore(produtos.lembrancas)
+export const renderPresentes = renderStore(produtos.presentes)
+export const renderDecorativos = renderStore(produtos.decorativos)
+export const renderCorporativos = renderStore(produtos.corporativos)

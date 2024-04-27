@@ -26,10 +26,18 @@ nav {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-}
 
-nav section {
-  margin: 0.5vh 1vw;
+  & section {
+    margin: 0.5vh 1vw;
+
+    & a {
+      color: var(--primary);
+    }
+
+    & a.active {
+      color: var(--tertiary);
+    }
+  }
 }
 
 #produtos {
@@ -111,18 +119,18 @@ footer {
   }
 
   article.produto {
-    flex: 1 0 calc(33% - 10px);
+    max-width: 45%;
   }
 }
 
 @media (width > 1440px) {
   #produtos article.produto {
-    flex: 1 0 calc(25% - 10px);
+    max-width: 30%;
   }
 }
 
 @media (width > 1920px) {
   #produtos article.produto {
-    flex: 1 0 calc(15% - 10px);
+    max-width: 15%;
   }
 }
